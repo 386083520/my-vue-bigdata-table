@@ -1,6 +1,6 @@
 <template>
     <div id="app">
-        <div>
+        <div class="wraper">
             <bigdata-table></bigdata-table>
         </div>
     </div>

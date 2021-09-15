@@ -1,2 +1,3 @@
 import styleComputed from './style-compute';
-export default [ styleComputed ];
+import dataHandle from './data-handle';
+export default [ styleComputed, dataHandle ];

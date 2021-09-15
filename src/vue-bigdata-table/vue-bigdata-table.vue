@@ -3,6 +3,13 @@
         <div  :class="wrapperClasses" :style="tableWidthStyles">
             <div class="vue-bigdata-table-wrapper" ref="outWrapper">
                 <div :class="['vue-bigdata-table-header-wrapper', fixed ? 'header-wrapper-fixed' : '']" :style="headerStyle">
+                    <table>
+                        <tr>
+                            <th v-for="(col, i) in columnsHandled">
+                                <span>{{col.title}}</span>
+                            </th>
+                        </tr>
+                    </table>
                 </div>
                 <div class="vue-bigdata-table-content"></div>
             </div>

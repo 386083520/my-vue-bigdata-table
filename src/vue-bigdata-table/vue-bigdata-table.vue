@@ -23,7 +23,19 @@
             headerHeight: {
                 type: Number,
                 default: 52
+            },
+            value: {
+                type: Array
+            },
+            columns: {
+                type: Array
             }
+        },
+        mounted() {
+            setTimeout(() => {
+                console.log('gsd1', this.value)
+                console.log('gsd2', this.columns)
+            }, 1000)
         },
         data () {
             return {

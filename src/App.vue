@@ -1,10 +1,16 @@
 <template>
     <div id="app">
-        <div>666</div>
+        <div>
+            <bigdata-table></bigdata-table>
+        </div>
     </div>
 </template>
 <script>
+    import bigdataTable from './vue-bigdata-table';
     export default {
-        name: 'app'
+        name: 'app',
+        components: {
+            bigdataTable
+        }
     }
 </script>

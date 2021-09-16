@@ -1,7 +1,8 @@
 export default {
     data() {
         return {
-            tableWidth: 0
+            tableWidth: 0,
+            widthArr: []
         }
     },
     computed: {
@@ -19,6 +20,18 @@ export default {
                 height: this.headerHeight + 'px',
                 transform: 'translateX(0)'
             };
+        },
+        colWidthArr () {
+            let colWidthArr = [200, 200, 2200, 200 ,200];
+            return colWidthArr
+        }
+    },
+    methods: {
+        _tableResize () {
+            this.$nextTick(() => {
+                this.widthArr = this.colWidthArr;
+                console.log('gsd777', this.widthArr)
+            })
         }
     }
 }

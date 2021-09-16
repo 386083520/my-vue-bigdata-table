@@ -4,5 +4,20 @@ export default {
             let columns = [...this.columns];
             return columns
         }
+    },
+    data() {
+        return {
+            insideTableData: []
+        }
+    },
+    methods: {
+        setInitIndex (tableData) {
+            console.log('gsd888', tableData)
+            return tableData.map((item, i) => {
+                let row = item;
+                row.initRowIndex = i;
+                return row;
+            });
+        }
     }
 }

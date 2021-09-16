@@ -4,6 +4,9 @@
             <div class="vue-bigdata-table-wrapper" ref="outWrapper">
                 <div :class="['vue-bigdata-table-header-wrapper', fixed ? 'header-wrapper-fixed' : '']" :style="headerStyle">
                     <table>
+                        <colgroup>
+                            <col :width="width" v-for="(width, i) in widthArr" :key="'header-key-fixed-' + i" />
+                        </colgroup>
                         <tr>
                             <th v-for="(col, i) in columnsHandled">
                                 <span>{{col.title}}</span>
@@ -11,7 +14,11 @@
                         </tr>
                     </table>
                 </div>
-                <div class="vue-bigdata-table-content"></div>
+                <div class="vue-bigdata-table-content">
+                    <div style="height: 50px">
+
+                    </div>
+                </div>
             </div>
         </div>
     </div>
@@ -36,13 +43,31 @@
             },
             columns: {
                 type: Array
+            },
+            colWidth: {
+                type: Number,
+                default: 100
+            },
+            headerHeight: {
+                type: Number,
+                default: 52
             }
         },
         mounted() {
-            setTimeout(() => {
-                console.log('gsd1', this.value)
-                console.log('gsd2', this.columns)
-            }, 1000)
+            this.$nextTick(() => {
+                this.insideTableData = this.setInitIndex(this.value);
+            })
+        },
+        watch: {
+            insideTableData () {
+                console.log('gsd666')
+                this._tableResize();
+            },
+            value () {
+                this.$nextTick(() => {
+                    this.insideTableData = this.setInitIndex(this.value);
+                })
+            }
         },
         data () {
             return {

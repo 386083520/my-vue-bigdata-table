@@ -2,6 +2,8 @@
     <div id="app">
         <div class="wraper">
             <bigdata-table
+                :col-width="200"
+                :header-height="80"
                :columns="columns"
                v-model="tableDataHandled"
             ></bigdata-table>
@@ -53,3 +55,12 @@
         }
     }
 </script>
+<style lang="less">
+    .wraper{
+        margin: 0px auto;
+        padding: 40px;
+        width: 1000px;
+        height: 500px;
+        overflow: auto;
+    }
+</style>

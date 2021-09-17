@@ -23,7 +23,7 @@ export default {
             };
         },
         colWidthArr () {
-            let colWidthArr = [200, 200, 2200, 200 ,200];
+            let colWidthArr = [200, 200, 200, 200 ,200, 200, 200];
             return colWidthArr
         },
         bottomPlaceholderHeight () {

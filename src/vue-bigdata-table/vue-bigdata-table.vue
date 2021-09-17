@@ -3,7 +3,7 @@
         <div  :class="wrapperClasses" :style="tableWidthStyles">
             <div class="vue-bigdata-table-wrapper" ref="outWrapper">
                 <div :class="['vue-bigdata-table-header-wrapper', fixed ? 'header-wrapper-fixed' : '']" :style="headerStyle">
-                    <table>
+                    <table style="position: absolute;left: 0;top: 0;" cellspacing="0" cellpadding="0" border="0" width="100%">
                         <colgroup>
                             <col :width="width" v-for="(width, i) in widthArr" :key="'header-key-fixed-' + i" />
                         </colgroup>

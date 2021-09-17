@@ -18,6 +18,14 @@ export default {
                 row.initRowIndex = i;
                 return row;
             });
+        },
+        renderTable (h) {
+            return h('div', {
+                style: this.tableWidthStyles
+            }, this.getTables(h));
+        },
+        getTables (h) {
+
         }
     }
 }

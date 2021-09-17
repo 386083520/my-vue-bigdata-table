@@ -2,7 +2,8 @@ export default {
     data() {
         return {
             tableWidth: 0,
-            widthArr: []
+            widthArr: [],
+            topPlaceholderHeight: 50, // 顶部占位容器高度
         }
     },
     computed: {
@@ -24,6 +25,9 @@ export default {
         colWidthArr () {
             let colWidthArr = [200, 200, 2200, 200 ,200];
             return colWidthArr
+        },
+        bottomPlaceholderHeight () {
+            return 50 // TODO
         }
     },
     methods: {

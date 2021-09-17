@@ -15,9 +15,9 @@
                     </table>
                 </div>
                 <div class="vue-bigdata-table-content">
-                    <div style="height: 50px">
-
-                    </div>
+                    <div :style="{height: `${topPlaceholderHeight}px`}"></div>
+                    <render-dom :render="renderTable"></render-dom>
+                    <div :style="{height: `${bottomPlaceholderHeight}px`}"></div>
                 </div>
             </div>
         </div>
@@ -26,9 +26,13 @@
 
 <script>
     import mixins from './mixins';
+    import renderDom from './components/renderDom';
     export default {
         name: 'bigdataTable',
         mixins: [ ...mixins ],
+        components: {
+            renderDom
+        },
         props: {
             fixed: {
                 type: Boolean,

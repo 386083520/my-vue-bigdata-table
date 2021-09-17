@@ -52,9 +52,13 @@
                 type: Number,
                 default: 100
             },
-            headerHeight: {
+            rowHeight: {
                 type: Number,
-                default: 52
+                default: 48
+            },
+            appendNum: {
+                type: Number,
+                default: 15
             }
         },
         mounted() {

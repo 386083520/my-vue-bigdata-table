@@ -3,7 +3,9 @@ export default {
         return {
             tableWidth: 0,
             widthArr: [],
+            wrapperHeight: 0,
             topPlaceholderHeight: 50, // 顶部占位容器高度
+            moduleHeight: 0,
         }
     },
     computed: {
@@ -28,11 +30,18 @@ export default {
         },
         bottomPlaceholderHeight () {
             return 50 // TODO
+        },
+        itemRowHeight () {
+            return this.rowHeight === undefined ? 48 : this.rowHeight;
         }
     },
     methods: {
         updateHeight () {
             this.$nextTick(() => {
+                let wrapperHeight = this.$refs.outer.offsetHeight;
+                this.itemNum = Math.ceil((wrapperHeight - this.headerHeight) / this.itemRowHeight + this.appendNum)
+                this.moduleHeight = this.itemNum * this.itemRowHeight;
+                this.wrapperHeight = wrapperHeight;
                 this.setTopPlace()
             })
         },

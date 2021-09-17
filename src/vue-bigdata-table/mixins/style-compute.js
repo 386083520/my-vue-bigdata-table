@@ -31,8 +31,17 @@ export default {
         }
     },
     methods: {
+        updateHeight () {
+            this.$nextTick(() => {
+                this.setTopPlace()
+            })
+        },
+        setTopPlace () {
+            this.setTableData();
+        },
         _tableResize () {
             this.$nextTick(() => {
+                this.updateHeight();
                 this.widthArr = this.colWidthArr;
                 console.log('gsd777', this.widthArr)
             })

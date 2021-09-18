@@ -6,6 +6,7 @@ export default {
             wrapperHeight: 0,
             topPlaceholderHeight: 50, // 顶部占位容器高度
             moduleHeight: 0,
+            scrollTop: 0
         }
     },
     computed: {
@@ -46,6 +47,7 @@ export default {
             })
         },
         setTopPlace () {
+            let scrollTop = this.scrollTop;
             this.setTableData();
         },
         _tableResize () {

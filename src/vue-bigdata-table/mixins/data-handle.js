@@ -8,7 +8,9 @@ export default {
     data() {
         return {
             insideTableData: [],
-            itemNum: 0
+            itemNum: 0,
+            scrollLeft: 0,
+            currentIndex: 0
         }
     },
     methods: {
@@ -34,6 +36,16 @@ export default {
             let table3 = this.getItemTable(h, this.table3Data, 3);
         },
         getItemTable (h, data, index) {
+        },
+        handleScroll (e) {
+            let ele = e.srcElement || e.target;
+            let { scrollTop, scrollLeft } = ele; // scrollTop是这个元素的内容顶部（卷起来的）到它的视口可见内容（的顶部）的距离的度量
+            this.scrollLeft = scrollLeft;
+            this.currentIndex = parseInt((scrollTop %(this.moduleHeight * 3)) / this.moduleHeight)
+            this.scrollTop = scrollTop;
+            this.$nextTick(() => {
+                this.setTopPlace();
+            });
         }
     }
 }

@@ -1,5 +1,5 @@
 <template>
-    <div class="vue-bigdata-table-outer" ref="outer">
+    <div class="vue-bigdata-table-outer" ref="outer" @scroll="handleScroll">
         <div  :class="wrapperClasses" :style="tableWidthStyles">
             <div class="vue-bigdata-table-wrapper" ref="outWrapper">
                 <div :class="['vue-bigdata-table-header-wrapper', fixed ? 'header-wrapper-fixed' : '']" :style="headerStyle">

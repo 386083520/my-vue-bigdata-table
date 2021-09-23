@@ -6,7 +6,8 @@ export default {
             wrapperHeight: 0,
             topPlaceholderHeight: 50, // 顶部占位容器高度
             moduleHeight: 0,
-            scrollTop: 0
+            scrollTop: 0,
+            totalRowHeight: 0
         }
     },
     computed: {
@@ -29,8 +30,11 @@ export default {
             let colWidthArr = [200, 200, 200, 200 ,200, 200, 200];
             return colWidthArr
         },
+        placeholderHeight () {
+            return this.totalRowHeight - this.moduleHeight * 3; // 占位容器的总高度(上 + 下)
+        },
         bottomPlaceholderHeight () {
-            return 50 // TODO
+            return (this.placeholderHeight - this.topPlaceholderHeight) < 0 ? 0 : this.placeholderHeight - this.topPlaceholderHeight;
         },
         itemRowHeight () {
             return this.rowHeight === undefined ? 48 : this.rowHeight;
@@ -78,9 +82,14 @@ export default {
         _tableResize () {
             this.$nextTick(() => {
                 this.updateHeight();
+                this.setComputedProps();
                 this.widthArr = this.colWidthArr;
                 console.log('gsd777', this.widthArr)
             })
+        },
+        setComputedProps () {
+            const len = this.insideTableData.length;
+            this.totalRowHeight = len * this.itemRowHeight;
         }
     }
 }

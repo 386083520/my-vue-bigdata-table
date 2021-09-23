@@ -54,11 +54,18 @@ export default {
         },
         getItemTable (h, data, index) {
             return h(ItemTable, {
-                props: {},
+                props: {
+                    itemData: data,
+                    showIndex: this.showIndex,
+                    columns: this.columnsHandled,
+                    rowStyles: this.rowStyles,
+                },
                 on: {},
-                key: {},
+                key: 'table-item-key' + index,
                 ref: {},
-                attrs: {}
+                attrs: {
+                    'data-index': index
+                }
             })
         },
         handleScroll (e) {

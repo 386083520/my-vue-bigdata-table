@@ -31,6 +31,49 @@
       }
     }
   }
+  &-wrapper {
+    width: 100%;
+    border-bottom: none;
+    .@{prefix}-content {
+      width: 100%;
+      height: auto;
+    }
+    .@{prefix}-data-table {
+      &.@{prefix}-content-table {
+
+        left: 0;
+        top: 0;
+      }
+
+      border-bottom: none;
+      border-top: none;
+      table-layout: fixed;
+      tr{
+        background: #fff;
+        td {
+          min-width: 0;
+          height: 48px;
+          box-sizing: border-box;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          vertical-align: middle;
+          border-bottom: 1px solid #e9eaec;
+          border-right: 1px solid #e9eaec;
+
+          border-left: 1px solid transparent;
+          border-top: 1px solid transparent; // 表格选中
+          .@{prefix}-cell{
+            box-sizing: border-box;
+            padding: 0 18px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            word-break: break-all;
+          }
+        }
+      }
+    }
+  }
   &-fixed{
     .@{prefix}-header-wrapper{
       top: 0;

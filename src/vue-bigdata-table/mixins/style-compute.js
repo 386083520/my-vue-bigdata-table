@@ -40,6 +40,9 @@ export default {
         },
         itemRowHeight () {
             return this.rowHeight === undefined ? 48 : this.rowHeight;
+        },
+        rowStyles () {
+            return this.rowHeight !== undefined ? {height: `${this.rowHeight}px`} : {};
         }
     },
     methods: {

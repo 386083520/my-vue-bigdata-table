@@ -1,3 +1,4 @@
+import ItemTable from '../components/item-table.vue';
 export default {
     computed: {
         columnsHandled() {
@@ -52,6 +53,13 @@ export default {
             }
         },
         getItemTable (h, data, index) {
+            return h(ItemTable, {
+                props: {},
+                on: {},
+                key: {},
+                ref: {},
+                attrs: {}
+            })
         },
         handleScroll (e) {
             let ele = e.srcElement || e.target;

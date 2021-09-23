@@ -59,6 +59,14 @@
             appendNum: {
                 type: Number,
                 default: 15
+            },
+            fixedWrapperWidth: {
+                type: Boolean,
+                default: false
+            },
+            showIndex: {
+                type: Boolean,
+                default: false
             }
         },
         mounted() {

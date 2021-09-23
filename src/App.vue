@@ -2,6 +2,7 @@
     <div id="app">
         <div class="wraper">
             <bigdata-table
+                fixed
                 :col-width="200"
                 :header-height="80"
                :columns="columns"
@@ -43,7 +44,7 @@
             }
         },
         mounted() {
-            this.changeData(100);
+            this.changeData(1000);
             let headers = ['这是数字', '这是字符1列', '这是纬度', '这是数字', '这是经度', '这是字符2列', '这是时间']
             let columns = headers.map((title, col) => {
                 return {

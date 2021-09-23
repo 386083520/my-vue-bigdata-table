@@ -1,3 +1,4 @@
+import { getScrollbarWidth } from '../util/index';
 export default {
     data() {
         return {
@@ -7,7 +8,8 @@ export default {
             topPlaceholderHeight: 50, // 顶部占位容器高度
             moduleHeight: 0,
             scrollTop: 0,
-            totalRowHeight: 0
+            totalRowHeight: 0,
+            indexWidthInside: 0
         }
     },
     computed: {
@@ -83,6 +85,11 @@ export default {
             this.$nextTick(() => {
                 this.updateHeight();
                 this.setComputedProps();
+                let scrollBarWidth = this.totalRowHeight > this.wrapperHeight ? getScrollbarWidth() : 0;
+                this.outerWidth = this.$refs.outer.offsetWidth - 2 - scrollBarWidth;
+                let width = this.colWidth * this.columns.length + (this.showIndex ? this.indexWidthInside : 0);
+                console.log('gsdwidth', width, this.outerWidth)
+                this.tableWidth = this.fixedWrapperWidth ? this.outerWidth : (width > this.outerWidth ? width : this.outerWidth);
                 this.widthArr = this.colWidthArr;
                 console.log('gsd777', this.widthArr)
             })

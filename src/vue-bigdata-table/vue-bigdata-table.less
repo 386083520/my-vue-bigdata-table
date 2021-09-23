@@ -16,6 +16,10 @@
     .@{prefix}-header-wrapper{
       box-sizing: border-box;
       z-index: 70;
+      &.header-wrapper-fixed{
+        position: -webkit-sticky;
+        position: sticky;
+      }
       table {
         height: 100%;
         table-layout: fixed;
@@ -25,6 +29,13 @@
           white-space: nowrap;
         }
       }
+    }
+  }
+  &-fixed{
+    .@{prefix}-header-wrapper{
+      top: 0;
+      left: 0;
+      box-sizing: border-box;
     }
   }
 }

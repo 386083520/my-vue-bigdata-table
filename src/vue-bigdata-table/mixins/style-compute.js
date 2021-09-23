@@ -48,7 +48,32 @@ export default {
         },
         setTopPlace () {
             let scrollTop = this.scrollTop;
+            let t0 = 0;
+            let t1 = 0;
+            let t2 = 0;
+            if (scrollTop > this.moduleHeight) {
+                switch (this.currentIndex) {
+                    case 0:
+                        t0 = parseInt(scrollTop / (this.moduleHeight * 3)) // 52/30 1.? -> 1
+                        t1 = t2 = t0;
+                        break;
+                    case 1:
+                        parseInt((scrollTop - this.moduleHeight) / (this.moduleHeight * 3));
+                        t0 = t1 + 1;
+                        t2 = t1;
+                        break;
+                    case 2:
+                        t2 = parseInt((scrollTop - this.moduleHeight * 2) / (this.moduleHeight * 3)); // 52 - 20 -> 32/30 1.?
+                        t0 = t1 = t2 + 1; // 2,2,1
+                        break;
+                }
+            }
+            this.times0 = t0;
+            this.times1 = t1;
+            this.times2 = t2;
+            this.topPlaceholderHeight = parseInt(scrollTop / this.moduleHeight) * this.moduleHeight; // 52/10 5.2
             this.setTableData();
+
         },
         _tableResize () {
             this.$nextTick(() => {

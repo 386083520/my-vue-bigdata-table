@@ -59,6 +59,8 @@ export default {
                     showIndex: this.showIndex,
                     columns: this.columnsHandled,
                     rowStyles: this.rowStyles,
+                    widthArr: this.colWidthArr,
+                    fixedCol: this.fixedCol
                 },
                 on: {},
                 key: 'table-item-key' + index,

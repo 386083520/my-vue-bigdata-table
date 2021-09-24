@@ -81,4 +81,21 @@
       box-sizing: border-box;
     }
   }
+  &-fixed-table{
+    position: -webkit-sticky;
+    position: sticky;
+    left: 0;
+    z-index: 60;
+    transition: box-shadow .2s ease;
+    &.box-shadow{
+      box-shadow: 2px 0 6px -2px rgba(0,0,0,.2);
+      transition: box-shadow .2s ease;
+    }
+    td{
+      border-right: 1px solid #e9eaec;
+    }
+  }
+  &-item-table{
+    position: relative;
+  }
 }

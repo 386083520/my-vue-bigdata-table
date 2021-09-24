@@ -67,6 +67,10 @@
             showIndex: {
                 type: Boolean,
                 default: false
+            },
+            fixedCol: {
+                type: Number,
+                default: -1
             }
         },
         mounted() {
